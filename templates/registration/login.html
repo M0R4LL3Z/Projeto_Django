@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* Estilo para o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+/* Estilo para o container do formulário */
+form {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+}
+
+/* Estilo para o título do formulário */
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+/* Estilo para os rótulos dos campos */
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 6px;
+}
+
+/* Estilo para os campos de entrada de texto e senha */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* Estilo para o botão de login */
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Estilo para o botão de login ao passar o mouse sobre ele */
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para mensagens de erro */
+p {
+    color: red;
+    margin-top: 10px;
+}
+
+/* Estilo para o link de registro */
+p a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* Estilo para o link de registro ao passar o mouse sobre ele */
+p a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Login</h1>
+
+    <form method="post">
+        {% csrf_token %}
+
+        {% if form.errors %}
+        <p style="color: red;">Por favor, corrija os seguintes erros:</p>
+        {% endif %}
+
+        <label for="username">Nome de Usuário:</label>
+        {{ form.username.errors }}
+        <input type="text" name="username" id="username" value="{{ form.username.value }}" required>
+        <br>
+
+        <label for="password">Senha:</label>
+        {{ form.password.errors }}
+        <input type="password" name="password" id="password" required>
+        <br>
+
+        <button type="submit">Entrar</button>
+    </form>
+
+    
+</body>
+</html>

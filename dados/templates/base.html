@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Carteira>{% block title %}{% endblock %}</title>
+    <style>
+        
+header {
+  background-color: #4682B4; 
+  padding: 20px; 
+  text-align: center; 
+}
+
+
+header h1 {
+  color: #FFFFFF; 
+  font-size: 24px; 
+  font-weight: bold; 
+}
+
+
+#conteudo {
+  display: flex; 
+  align-items: center; 
+  padding: 20px; 
+}
+
+
+#imagem {
+  flex: 1; 
+  max-width: 100%; 
+  height: auto; 
+}
+
+
+#informacoes {
+  flex: 2; 
+  padding-left: 20px; 
+}
+
+
+.informacao {
+  margin-bottom: 10px; 
+  font-size: 30px; 
+}
+
+
+#meuBotao {
+  background-color: #0074D9;
+  color: #FFFFFF; 
+  padding: 10px 20px; 
+  border: none; 
+  cursor: pointer; 
+  font-size: 16px; 
+  border-radius: 5px; 
+}
+
+
+#meuBotao:hover {
+  background-color: #0056b3; 
+}
+
+@media screen and (max-width: 600px) {
+            #conteudo {
+                flex-direction: column; 
+                text-align: center; 
+            }
+
+            #informacoes {
+                padding-left: 0; 
+            }
+        }
+
+
+
+    </style>
+    
+</head>
+<body>
+  {% block content %}
+    <header>
+        <h1>Carteira Amf</h1>
+    </header>
+    <div id="conteudo">
+        <img id="imagem" src="https://t.ctcdn.com.br/sCcEQtGDmgOulA-eyYCYrHUJ8HA=/640x360/smart/i397070.jpeg" alt="Imagem de exemplo">
+        <div id="informacoes">
+          <div class="informacao">Nome: Wade Wilson</div>
+          <div class="informacao">Número: (55)99224002</div>
+          <div class="informacao">Email: Dead_Pol@gmail.com</div>
+        </div>
+      </div>
+      {% for cursos in curso %}
+          <h1>{{cursos.nome}}</h1>
+      {% endfor %}
+      <a href="formulario/">
+        <button type="button" id="meuBotao">Formulario Estudante</button>
+      </a>
+
+      <a href="formulario2/">
+        <button type="button" id="meuBotao">Formulario Curso</button>
+      </a>
+      
+      
+  {% endblock %}
+
+      
+
+
+    
+    
+</body>
+</html>
